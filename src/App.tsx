@@ -1,51 +1,98 @@
-import ListItem from "./ListItem";
+import { useState } from "react";
+import JobListItem, { JobListItemData } from "./JobListItem";
+import JobDetails from "./JobDetails";
+
+const fakeData: JobListItemData[] = [
+    {
+        id: 1,
+        company: {
+            name: "GovTech",
+            rating: 4,
+        },
+        title: "Solution Architect, National Digital Identity",
+        specialisation: "Solutions",
+        createdAt: new Date(Date.now()),
+        location: "Singapore",
+        techStack: ["OpenID", "Container", "OAuth", "AWS", "Rest API", "NoSQL"],
+    },
+    {
+        id: 2,
+        company: {
+            name: "Crypto.com",
+            rating: 4.4,
+        },
+        title: "Product Manager",
+        specialisation: "PM",
+        createdAt: new Date(Date.now() - 3 * (60 * 60 * 1000)),
+        location: "Malaysia",
+        techStack: [],
+        salary: { value: "S$5,000 - S$7,000 / mth", isEstimate: true },
+    },
+    {
+        id: 3,
+        company: {
+            name: "Avanade",
+            rating: 4,
+        },
+        title: "Data Engineer (PowerBI, Azure Databricks, Azure Data Factory)",
+        specialisation: "Data Eng",
+        createdAt: new Date("2023-08-10"),
+        techStack: ["Powershell", "ETL", "Amazon S3", "AWS", "API", "Factory"],
+    },
+    {
+        id: 4,
+        company: {
+            name: "PayPal",
+            rating: 4.1,
+        },
+        title: "Data Analyst 2",
+        specialisation: "Data Analyst",
+        createdAt: new Date("2023-08-01"),
+        techStack: ["Strategy", "Analytics", "R", "BigQuery", "SQL", "Python"],
+    },
+    {
+        id: 5,
+        company: {
+            name: "Dyson",
+        },
+        title: "Lead Data Scientist (Connectivity)",
+        specialisation: "Data Sci",
+        createdAt: new Date("2023-08-08"),
+        techStack: [
+            "AWS",
+            "play",
+            "Analytics",
+            "BigQuery",
+            "RedShift",
+            "SQL",
+            "Python",
+        ],
+        salary: { value: "S$6,000 - S$11,000 / mth", isEstimate: false },
+    },
+];
 
 const App = () => {
+    const [selectedItem, setSelectedItem] = useState(fakeData[0]);
     return (
         <main className="w-full h-screen bg-stone-100 flex justify-center p-4">
             <div
-                className="w-full grid gap-3 h-full"
-                style={{ maxWidth: "1110px", gridTemplateColumns: "3fr 5fr" }}
+                className="w-full grid gap-3"
+                style={{ maxWidth: "1110px", gridTemplateColumns: "2fr 3fr" }}
             >
-                <div className="flex flex-col gap-3 overflow-auto px-2">
-                    <ListItem />
-                    <ListItem isSelected={true} />
-                    <ListItem />
-                    <ListItem />
-                    <ListItem />
-                    <ListItem />
+                <div className="flex flex-col gap-3 overflow-auto px-1">
+                    {fakeData.map((itemData) => {
+                        return (
+                            <JobListItem
+                                data={itemData}
+                                key={itemData.id}
+                                onClick={(data) => setSelectedItem(data)}
+                                isSelected={itemData.id === selectedItem.id}
+                            />
+                        );
+                    })}
                 </div>
-                <div className="h-full bg-white rounded-lg p-4 shadow-sm">
-                    We're no strangers to love You know the rules and so do I
-                    (do I) A full commitment's what I'm thinking of You wouldn't
-                    get this from any other guy I just wanna tell you how I'm
-                    feeling Gotta make you understand Never gonna give you up
-                    Never gonna let you down Never gonna run around and desert
-                    you Never gonna make you cry Never gonna say goodbye Never
-                    gonna tell a lie and hurt you We've known each other for so
-                    long Your heart's been aching, but you're too shy to say it
-                    (say it) Inside, we both know what's been going on (going
-                    on) We know the game and we're gonna play it And if you ask
-                    me how I'm feeling Don't tell me you're too blind to see
-                    Never gonna give you up Never gonna let you down Never gonna
-                    run around and desert you Never gonna make you cry Never
-                    gonna say goodbye Never gonna tell a lie and hurt you Never
-                    gonna give you up Never gonna let you down Never gonna run
-                    around and desert you Never gonna make you cry Never gonna
-                    say goodbye Never gonna tell a lie and hurt you We've known
-                    each other for so long Your heart's been aching, but you're
-                    too shy to say it (to say it) Inside, we both know what's
-                    been going on (going on) We know the game and we're gonna
-                    play it I just wanna tell you how I'm feeling Gotta make you
-                    understand Never gonna give you up Never gonna let you down
-                    Never gonna run around and desert you Never gonna make you
-                    cry Never gonna say goodbye Never gonna tell a lie and hurt
-                    you Never gonna give you up Never gonna let you down Never
-                    gonna run around and desert you Never gonna make you cry
-                    Never gonna say goodbye Never gonna tell a lie and hurt you
-                    Never gonna give you up Never gonna let you down Never gonna
-                    run around and desert you Never gonna make you cry Never
-                    gonna say goodbye Never gonna tell a lie and hurt you
+                <div className="h-full overflow-auto px-1">
+                    <JobDetails data={selectedItem} />
                 </div>
             </div>
         </main>
