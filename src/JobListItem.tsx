@@ -1,11 +1,12 @@
 import Chip from "./Chip";
-import LocationIcon from "./assets/location.svg";
+import LocationIcon from "/assets/location.svg";
 
 export type JobListItemData = {
     id: number;
     company: {
         name: string;
         rating?: number;
+        profileImgSrc: string;
     };
     title: string;
     specialisation: string;
@@ -57,9 +58,12 @@ const ListItem = (props: PropType) => {
                 <div className="flex">
                     <div
                         style={{ width: `${iconWidth}px` }}
-                        className="shrink-0"
+                        className="shrink-0 mr-2"
                     >
-                        img
+                        <img
+                            src={`./assets/${data.company.profileImgSrc}`}
+                            className="rounded-md"
+                        />
                     </div>
                     <div className="grow">
                         <span className="text-sm">
@@ -85,7 +89,7 @@ const ListItem = (props: PropType) => {
                 </div>
                 <div
                     className="text-sm"
-                    style={{ marginLeft: `${iconWidth}px` }}
+                    style={{ marginLeft: `calc(${iconWidth}px + 0.5em)` }}
                 >
                     <div className="flex items-center flex-wrap">
                         <span className="text-green-500 font-bold">

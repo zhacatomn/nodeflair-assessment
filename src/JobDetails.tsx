@@ -1,6 +1,6 @@
 import Chip from "./Chip";
 import { JobListItemData } from "./JobListItem";
-import LocationIcon from "./assets/location.svg";
+import LocationIcon from "/assets/location.svg";
 
 const JobDetails = (props: { data: JobListItemData }) => {
     const { data } = props;
@@ -22,8 +22,14 @@ const JobDetails = (props: { data: JobListItemData }) => {
     return (
         <div className="bg-white rounded-lg shadow-sm">
             <div className="flex px-4 py-6">
-                <div style={{ width: `${iconWidth}px` }} className="shrink-0">
-                    img
+                <div
+                    style={{ width: `${iconWidth}px` }}
+                    className="shrink-0 mr-4"
+                >
+                    <img
+                        src={`./assets/${data.company.profileImgSrc}`}
+                        className="rounded-md"
+                    />
                 </div>
                 <div className="grow">
                     <span className="text-sm">

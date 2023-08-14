@@ -8,6 +8,7 @@ const fakeData: JobListItemData[] = [
         company: {
             name: "GovTech",
             rating: 4,
+            profileImgSrc: "govtech.png",
         },
         title: "Solution Architect, National Digital Identity",
         specialisation: "Solutions",
@@ -20,6 +21,7 @@ const fakeData: JobListItemData[] = [
         company: {
             name: "Crypto.com",
             rating: 4.4,
+            profileImgSrc: "crypto.png",
         },
         title: "Product Manager",
         specialisation: "PM",
@@ -33,6 +35,7 @@ const fakeData: JobListItemData[] = [
         company: {
             name: "Avanade",
             rating: 4,
+            profileImgSrc: "avande.png",
         },
         title: "Data Engineer (PowerBI, Azure Databricks, Azure Data Factory)",
         specialisation: "Data Eng",
@@ -44,6 +47,7 @@ const fakeData: JobListItemData[] = [
         company: {
             name: "PayPal",
             rating: 4.1,
+            profileImgSrc: "paypal.png",
         },
         title: "Data Analyst 2",
         specialisation: "Data Analyst",
@@ -54,6 +58,7 @@ const fakeData: JobListItemData[] = [
         id: 5,
         company: {
             name: "Dyson",
+            profileImgSrc: "dyson.png",
         },
         title: "Lead Data Scientist (Connectivity)",
         specialisation: "Data Sci",
