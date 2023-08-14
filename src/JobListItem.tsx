@@ -1,5 +1,5 @@
-import Chip from "./Chip";
-import Paper from "./Paper";
+import Chip from "./components/Chip";
+import Paper from "./components/Paper";
 import LocationIcon from "/assets/location.svg";
 
 export type JobListItemData = {

@@ -1,6 +1,6 @@
-import Chip from "./Chip";
+import Chip from "./components/Chip";
 import { JobListItemData } from "./JobListItem";
-import Paper from "./Paper";
+import Paper from "./components/Paper";
 import LocationIcon from "/assets/location.svg";
 
 const JobDetails = (props: { data: JobListItemData }) => {
