@@ -1,4 +1,5 @@
 import Chip from "./Chip";
+import Paper from "./Paper";
 import LocationIcon from "/assets/location.svg";
 
 export type JobListItemData = {
@@ -44,15 +45,14 @@ const ListItem = (props: PropType) => {
                   daysSinceCreation > 1 ? "s" : ""
               } ago`;
     return (
-        <div
-            onClick={() => onClick(data)}
-            className={`cursor-pointer transition ease-in-out bg-white px-4 rounded-lg shadow-sm 
-            hover:-translate-y-1 hover:shadow-lg
-            ${
-                isSelected
-                    ? "border-4 border-green-500"
-                    : "border border-gray-300"
+        <Paper
+            elevation="low"
+            hoverElevation="high"
+            style={`cursor-pointer transition ease-in-out px-4 hover:-translate-y-1 ${
+                isSelected ? "border-4 border-green-500" : ""
             }`}
+            isOutlined={true}
+            onClick={() => onClick(data)}
         >
             <div className="pt-4 pb-3">
                 <div className="flex">
@@ -138,7 +138,19 @@ const ListItem = (props: PropType) => {
                     );
                 })}
             </div>
-        </div>
+        </Paper>
+        // <div
+        //     onClick={() => onClick(data)}
+        //     className={`cursor-pointer transition ease-in-out bg-white px-4 rounded-lg shadow-sm
+        //     hover:-translate-y-1 hover:shadow-lg
+        //     ${
+        //         isSelected
+        //             ? "border-4 border-green-500"
+        //             : "border border-gray-300"
+        //     }`}
+        // >
+
+        // </div>
     );
 };
 

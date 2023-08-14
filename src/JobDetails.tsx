@@ -1,5 +1,6 @@
 import Chip from "./Chip";
 import { JobListItemData } from "./JobListItem";
+import Paper from "./Paper";
 import LocationIcon from "/assets/location.svg";
 
 const JobDetails = (props: { data: JobListItemData }) => {
@@ -20,7 +21,7 @@ const JobDetails = (props: { data: JobListItemData }) => {
                   daysSinceCreation > 1 ? "s" : ""
               } ago`;
     return (
-        <div className="bg-white rounded-lg shadow-sm">
+        <Paper elevation="low">
             <div className="flex px-4 py-6">
                 <div
                     style={{ width: `${iconWidth}px` }}
@@ -59,7 +60,7 @@ const JobDetails = (props: { data: JobListItemData }) => {
             {data.techStack.length > 0 && (
                 <div className="border-t border-gray-200 px-4 py-6">
                     <div className="font-bold mb-1">Tech Stacks</div>
-                    <div>
+                    <div className="flex flex-wrap gap-1">
                         {data.techStack.map((value, idx) => {
                             return (
                                 <Chip
@@ -68,7 +69,6 @@ const JobDetails = (props: { data: JobListItemData }) => {
                                     fontType="mono"
                                     isBolded={true}
                                     key={idx}
-                                    style="mr-1"
                                 />
                             );
                         })}
@@ -149,7 +149,7 @@ const JobDetails = (props: { data: JobListItemData }) => {
                     luctus venenatis lectus magna fringilla urna porttitor.
                 </span>
             </div>
-        </div>
+        </Paper>
     );
 };
 

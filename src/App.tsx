@@ -40,7 +40,15 @@ const fakeData: JobListItemData[] = [
         title: "Data Engineer (PowerBI, Azure Databricks, Azure Data Factory)",
         specialisation: "Data Eng",
         createdAt: new Date("2023-08-10"),
-        techStack: ["Powershell", "ETL", "Amazon S3", "AWS", "API", "Factory"],
+        techStack: [
+            "Powershell",
+            "ETL",
+            "Amazon S3",
+            "AWS",
+            "API",
+            "Factory",
+            "Some Long Name To Test Wrapping",
+        ],
     },
     {
         id: 4,
