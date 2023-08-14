@@ -1,3 +1,4 @@
+import Chip from "./Chip";
 import LocationIcon from "./assets/location.svg";
 
 export type JobListItemData = {
@@ -74,9 +75,12 @@ const ListItem = (props: PropType) => {
                         </div>
                     </div>
                     <div className="shrink-0">
-                        <span className="text-sm rounded-md bg-green-100 text-green-500 font-semibold py-1.5 px-2 whitespace-nowrap">
-                            {data.specialisation}
-                        </span>
+                        <Chip
+                            label={data.specialisation}
+                            color="primary"
+                            isBolded={true}
+                            size="small"
+                        />
                     </div>
                 </div>
                 <div
@@ -104,9 +108,12 @@ const ListItem = (props: PropType) => {
                                 {data.salary.value}
                             </span>
                             {data.salary.isEstimate && (
-                                <span className="text-sm rounded-md bg-gray-100 text-gray-500 py-1.5 px-2 whitespace-nowrap ml-2">
-                                    EST
-                                </span>
+                                <Chip
+                                    label="EST"
+                                    color="neutral"
+                                    size="small"
+                                    style="ml-2"
+                                />
                             )}
                         </div>
                     )}
@@ -116,12 +123,14 @@ const ListItem = (props: PropType) => {
             <div className="border-t border-gray-300 pt-2 pb-4 truncate">
                 {data.techStack.map((value, idx) => {
                     return (
-                        <span
-                            className="rounded-md bg-gray-100 text-gray-500 font-semibold py-1.5 px-2 font-mono mr-1"
+                        <Chip
+                            label={value}
+                            color="neutral"
+                            isBolded={true}
+                            fontType="mono"
+                            style="mr-1"
                             key={idx}
-                        >
-                            {value}
-                        </span>
+                        />
                     );
                 })}
             </div>

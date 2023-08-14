@@ -1,3 +1,4 @@
+import Chip from "./Chip";
 import { JobListItemData } from "./JobListItem";
 import LocationIcon from "./assets/location.svg";
 
@@ -55,12 +56,14 @@ const JobDetails = (props: { data: JobListItemData }) => {
                     <div>
                         {data.techStack.map((value, idx) => {
                             return (
-                                <span
-                                    className="rounded-md bg-gray-100 text-gray-500 font-semibold py-1.5 px-2 font-mono mr-1"
+                                <Chip
+                                    label={value}
+                                    color="neutral"
+                                    fontType="mono"
+                                    isBolded={true}
                                     key={idx}
-                                >
-                                    {value}
-                                </span>
+                                    style="mr-1"
+                                />
                             );
                         })}
                     </div>

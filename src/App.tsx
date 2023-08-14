@@ -74,9 +74,9 @@ const fakeData: JobListItemData[] = [
 const App = () => {
     const [selectedItem, setSelectedItem] = useState(fakeData[0]);
     return (
-        <main className="w-full h-screen bg-stone-100 flex justify-center p-4">
+        <main className="w-full min-h-screen bg-stone-100 flex justify-center">
             <div
-                className="w-full grid gap-3"
+                className="w-full md:h-screen block md:grid gap-3 p-4"
                 style={{ maxWidth: "1110px", gridTemplateColumns: "2fr 3fr" }}
             >
                 <div className="flex flex-col gap-3 overflow-auto px-1">
@@ -91,7 +91,7 @@ const App = () => {
                         );
                     })}
                 </div>
-                <div className="h-full overflow-auto px-1">
+                <div className="h-full overflow-auto px-1 hidden md:block">
                     <JobDetails data={selectedItem} />
                 </div>
             </div>
